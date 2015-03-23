@@ -2,6 +2,9 @@
 Customize the description text or shipper name of each shipping option on BicCommerce Checkout page.
 
 
+================================================================================================
+
+
 ##To Do
 
 1. Add installation instuctions
@@ -9,19 +12,34 @@ Customize the description text or shipper name of each shipping option on BicCom
 3. Create webpage and add module to list
 
 
+================================================================================================
+
+
 ## Installation
 
     Will provide later.
+
+
+================================================================================================
+
 
 ## Using
 
     Just install and it'll do the work for you!  
 
+
+================================================================================================
+
+
 ## Resources
 
 1. []()
 
-## Some BigCommerce modules I made
+
+================================================================================================
+
+
+## Some BigCommerce modules I've made
 
 * [BigCommerce Carousel Slider Slide Show Custom](https://github.com/iamandrebulatov/BC-Carousel-Slider-Slide-Show-Custom)
 * [BigCommerce Product Page Demo Videos](https://github.com/iamandrebulatov/BigCommerce-Product-Page-Demo-Videos)
@@ -42,9 +60,7 @@ Customize the description text or shipper name of each shipping option on BicCom
 
 
 
-
-
-
+================================================================================================
 
 
 
@@ -56,6 +72,9 @@ The absolute best thing to do is to sign up with [ChangeTip](//changetip.com) or
 
 [![ChangeTip donate button](http://andrebulatov.com/wp-content/uploads/tipme_button.png)](//www.changetip.com/tipme/andre.bulatov/ "Donate once-off to this project using ChangeTip")
 [![GratiPay donate button](http://andrebulatov.com/wp-content/uploads/gratipay-button.png)](//www.gratipay.com/andrebulatov/ "Donate once-off to this project using GratiPay")
+
+
+================================================================================================
 
 
 ## License
