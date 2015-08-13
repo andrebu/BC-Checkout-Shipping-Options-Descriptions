@@ -5,8 +5,13 @@
 	<div class="shipping-addons">
 	    <h3>Security &amp; Insurance</h3>
 	    <div class="del-sig">
-	        <span class="del-sig-text">Add the added security of a required signature upon delivery for just $5.</span>
+	        <span class="del-sig-text">Add the extra security of a required signature upon delivery for just $5.</span>
 	        <button onclick="$.post('/cart.php?action=add&amp;product_id=690');" class="btn Small" title="Add To Cart">Add Delivery Signature</button>
+	    </div>
+		<hr>
+	    <div class="ins-cost">
+	        <span class="ins-cost-text">Insure your full purchase order amount for only <span class="ins-total"></span>.</span>
+	        <button onclick="$.post('/cart.php?action=add&amp;product_id=' + insID);" class="btn Small" title="Add To Cart">Add Delivery Signature</button>
 	    </div>
 	</div>
 	<input type="submit" value="%%LNG_Continue%%" class="btn Small" />
@@ -15,6 +20,7 @@
 
 <script type="text/javascript">
 //<![CDATA[
+	//Add shipper text
 	function shipperText() {
 		var shippingItem1 = $('.ShippingProviderList').find("span.ShipperName:contains('Free Shipping')");
 			shippingItem2 = $('.ShippingProviderList').find("span.ShipperName:contains('Ground Home Delivery')");
@@ -32,6 +38,18 @@
 		shippingItem5.text('USPS Priority Express \(1-2 business days\)');
 		shippingItem6.text('FedEx Overnight \(1 business day\)');
 	}
+	//Add Shipping Addon buttons
+	function shippingAddons() {
+		var insTotal = $('.ins-total');
+		var insID;
+		$('.shipping-addons').append('<div class="mtotal" style="display: none;"></div>');
+		$('.mtotal').load('//store-mixi7d.mybigcommerce.com/cart.php .gtotal .ProductPrice');
+		setTimeout(function(){ 
+			var insuranceCost = parseFloat($('.mtotal .ProductPrice').text().replace('$','')) * 0.01;
+			insTotal.html(insuranceCost);
+			console.log('insurance cost is ' + insuranceCost)
+		},1000);
+	}
 	//Hide "Free Shipping" from wholesale accounts
 	function wholesaleHide() {
 		var $wholesaleSpecials = $('.CategoryList ul li:contains("Wholesale Specials")');
@@ -40,14 +58,6 @@
 				$('.ShipperName:contains("Free Shipping")').parents('li').remove();
 			};
 		};
-	}
-	function shippingAddons() {
-		$('.shipping-addons').append('<div class="mtotal" style="display: none;"></div>');
-		$('.mtotal').load('//store-mixi7d.mybigcommerce.com/cart.php .gtotal .ProductPrice');
-		setTimeout(function(){ 
-			var insuranceCost = parseFloat($('.mtotal .ProductPrice').text().replace('$','')) * 0.01;
-			console.log('insurance cost is ' + insuranceCost)
-		},1000);
 	}
 	$(document).ready(function(){
 		shipperText();
