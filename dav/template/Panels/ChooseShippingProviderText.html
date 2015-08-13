@@ -3,15 +3,16 @@
 	%%GLOBAL_ShippingQuotes%%
 	<hr>
 	<div class="shipping-addons">
-	    <h3>Security &amp; Insurance</h3>
+	    <h3>Delivery Signature (secure your delivery)</h3>
 	    <div class="del-sig">
-	        <span class="del-sig-text">Add the extra security of a required signature upon delivery for just $5.</span>
 	        <button onclick="$.post('/cart.php?action=add&amp;product_id=690');" class="btn Small" title="Add To Cart">Add Delivery Signature</button>
+	        <span class="del-sig-text">Add the extra security of a required signature upon delivery for just $5.</span>
 	    </div>
 		<hr>
+	    <h3>Shipping Insurance (insure your purchase)</h3>
 	    <div class="ins-cost">
-	        <span class="ins-cost-text">Insure your full purchase order amount for only <span class="ins-total"></span>.</span>
 	        <button onclick="$.post('/cart.php?action=add&amp;product_id=' + insID);" class="btn Small" title="Add To Cart">Add Delivery Signature</button>
+	        <span class="ins-cost-text">Insure your full purchase order amount for only $<span class="ins-total"></span>.</span>
 	    </div>
 	</div>
 	<input type="submit" value="%%LNG_Continue%%" class="btn Small" />
