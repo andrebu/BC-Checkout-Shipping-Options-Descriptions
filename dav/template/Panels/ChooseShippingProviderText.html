@@ -15,15 +15,6 @@
 
 <script type="text/javascript">
 //<![CDATA[
-	//Hide "Free Shipping" from wholesale accounts
-	function wholesaleHide() {
-		var $wholesaleSpecials = $('.CategoryList ul li:contains("Wholesale Specials")');
-		if ($wholesaleSpecials.length) {
-			if ($('.main.CheckoutExpress')) {
-				$('.ShipperName:contains("Free Shipping")').parents('li').remove();
-			};
-		};
-	}
 	function shipperText() {
 		var shippingItem1 = $('.ShippingProviderList').find("span.ShipperName:contains('Free Shipping')");
 			shippingItem2 = $('.ShippingProviderList').find("span.ShipperName:contains('Ground Home Delivery')");
@@ -41,6 +32,15 @@
 		shippingItem5.text('USPS Priority Express \(1-2 business days\)');
 		shippingItem6.text('FedEx Overnight \(1 business day\)');
 	}
+	//Hide "Free Shipping" from wholesale accounts
+	function wholesaleHide() {
+		var $wholesaleSpecials = $('.CategoryList ul li:contains("Wholesale Specials")');
+		if ($wholesaleSpecials.length) {
+			if ($('.main.CheckoutExpress')) {
+				$('.ShipperName:contains("Free Shipping")').parents('li').remove();
+			};
+		};
+	}
 	function shippingAddons() {
 		$('.shipping-addons').append('<div class="mtotal" style="display: none;"></div>');
 		$('.mtotal').load('//store-mixi7d.mybigcommerce.com/cart.php .gtotal .ProductPrice');
@@ -49,6 +49,9 @@
 			cartText = cartText.replace('$','');
 			console.log('carttext is ' + cartText)
 			var cartAmt = parseFloat( cartText );
+			console.log('cart amount is ' + cartAmt)
+			var insuranceCost = cartAmt * 0.01;
+			console.log('insurance cost is ' + cartAmt)
 		},1000);
 	}
 	$(document).ready(function(){
