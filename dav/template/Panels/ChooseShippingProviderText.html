@@ -45,12 +45,7 @@
 		$('.shipping-addons').append('<div class="mtotal" style="display: none;"></div>');
 		$('.mtotal').load('//store-mixi7d.mybigcommerce.com/cart.php .gtotal .ProductPrice');
 		setTimeout(function(){ 
-			var cartText = $('.mtotal .ProductPrice').text();
-			cartText = cartText.replace('$','');
-			console.log('carttext is ' + cartText)
-			var cartAmt = parseFloat( cartText );
-			console.log('cart amount is ' + cartAmt)
-			var insuranceCost = cartAmt * 0.01;
+			var insuranceCost = parseFloat($('.mtotal .ProductPrice').text().replace('$','')) * 0.01;
 			console.log('insurance cost is ' + insuranceCost)
 		},1000);
 	}
