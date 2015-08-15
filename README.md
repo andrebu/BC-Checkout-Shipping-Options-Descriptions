@@ -1,13 +1,14 @@
 # BC-Shipping-Options-Descriptions
-Customize the description text or shipper name of each shipping option on BicCommerce Checkout page.
+Customize the description text or shipper name of each shipping option on BigCommerce Checkout page.
 
+https://store-mixi7d.mybigcommerce.com/cart.php?action=remove&item=55ce8c6feeb1d
 
 ================================================================================================
 
 
 ##To Do
 
-1. Add installation instuctions
+1. Add installation instructions
 2. Appify
 3. Create webpage and add module to list
 
@@ -33,7 +34,11 @@ Customize the description text or shipper name of each shipping option on BicCom
 
 ## Resources
 
-1. []()
+- [Code for "Add $x.xx to cart for free shipping"](http://forum.bigcommerce.com/f4/code-for-add-x-xx-to-cart-for-free-shipping--20662/index2.html)
+- [Global variables for cart item quantity and $ value.](http://forum.bigcommerce.com/f5/global-variables-for-cart-item-quantity-and-value--8466/)
+- []()
+- []()
+- []()
 
 
 ================================================================================================
