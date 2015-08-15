@@ -5,13 +5,13 @@
 	<div class="shipping-addons">
 	    <h3>Delivery Signature (secure your delivery)</h3>
 	    <div class="del-sig">
-	        <button onclick="addDelSigToCart();" class="btn Small" title="Add Delivery Signature">Add Delivery Signature</button>
+	        <a href="#" onclick="$.post('/cart.php?action=add&product_id=690&ajaxsubmit=1');" class="btn Small" title="Add Delivery Signature">Add Delivery Signature</a>
 	        <span class="del-sig-text">Add the extra security of a required signature upon delivery for just $5.</span>
 	    </div>
 		<hr>
 	    <h3>Shipping Insurance (insure your purchase)</h3>
 	    <div class="ins-cost">
-	        <button onclick="addInsToCart();" class="btn Small" title="Add Shipping Insurance">Add Shipping Insurance</button>
+	        <a href="#" onclick="addInsToCart();" class="btn Small" title="Add To Cart">Add Shipping Insurance</a>
 	        <span class="ins-cost-text">Insure your full purchase order amount for only $<span class="ins-total"></span>.</span>
 	    </div>
 	</div>
@@ -52,10 +52,10 @@
 			console.log('insurance cost is ' + insuranceCost)
 		},1000);
 		function addDelSigToCart() {
-			$.post('/cart.php?action=add&amp;product_id=690');
+			$.post('/cart.php?action=add&product_id=690&ajaxsubmit=1');
 		}
 		function addInsToCart() {
-			$.post('/cart.php?action=add&amp;product_id=' + insID);
+			$.post('/cart.php?action=add&product_id=' + insID);
 		}
 	}
 	//Hide "Free Shipping" from wholesale accounts
