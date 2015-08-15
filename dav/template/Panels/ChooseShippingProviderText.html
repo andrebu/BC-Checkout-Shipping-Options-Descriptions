@@ -5,7 +5,7 @@
 	<div class="shipping-addons">
 	    <h3>Delivery Signature (secure your delivery)</h3>
 	    <div class="del-sig">
-	        <a href="javascript:void(0);" onclick="$.post('/cart.php?action=add&product_id=690&ajaxsubmit=1');" class="btn Small" title="Add Delivery Signature">Add Delivery Signature</a>
+	        <a href="javascript:void(0);" onclick="addDelSigToCart();" class="btn Small" title="Add Delivery Signature">Add Delivery Signature</a>
 	        <span class="del-sig-text">Add the extra security of a required signature upon delivery for just $5.</span>
 	    </div>
 		<hr>
@@ -33,6 +33,7 @@
 			bestValue = '<em style="color:#39b54a; "> - Best Value!</em>';
 
 		shippingItem1.text('Free Shipping \(3-6 business days\)');
+		shippingItem1.parent().append(bestValue);
 		shippingItem2.text('FedEx Ground \(3-6 business days\)');
 		shippingItem3.text('USPS Priority Mail \(1-3 business days\)');
 		shippingItem3.parent().append(bestValue);
@@ -41,6 +42,9 @@
 		shippingItem6.text('FedEx Overnight \(1 business day\)');
 	}
 	//Add Shipping Addon buttons
+	function addDelSigToCart() {
+		$.post('/cart.php?action=add&product_id=690&ajaxsubmit=1');
+	}
 	function shippingAddons() {
 		var insTotal = $('.ins-total');
 		var insID;
@@ -50,10 +54,7 @@
 			var insuranceCost = parseFloat($('.mtotal .ProductPrice').text().replace('$','')) * 0.01;
 			insTotal.html(insuranceCost);
 			console.log('insurance cost is ' + insuranceCost)
-		},1000);
-		function addDelSigToCart() {
-			$.post('/cart.php?action=add&product_id=690&ajaxsubmit=1');
-		}
+		},1000);  
 		function addInsToCart() {
 			$.post('/cart.php?action=add&product_id=' + insID);
 		}
