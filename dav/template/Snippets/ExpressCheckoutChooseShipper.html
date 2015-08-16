@@ -32,7 +32,7 @@
             shippingItem5 = $('.ShippingProviderList').find("span.ShipperName:contains('Express Mail')");
             shippingItem6 = $('.ShippingProviderList').find("span.ShipperName:contains('Standard Overnight')");
             bestValue = '<em style="color:#39b54a; "> - Best Value!</em>';
-
+            
         shippingItem1.text('Free Shipping \(3-6 business days\)');
         shippingItem2.text('FedEx Ground \(3-6 business days\)');
         shippingItem3.text('USPS Priority Mail \(1-3 business days\)');
@@ -40,6 +40,37 @@
         shippingItem4.text('FedEx 2-Day \(1-2 business days\)');
         shippingItem5.text('USPS Priority Express \(1-2 business days\)');
         shippingItem6.text('FedEx Overnight \(1 business day\)');
+
+		function shippingEstimateCookies() {
+			//jquery.cookie.js
+			(function(factory){if(typeof define==='function'&&define.amd){define(['jquery'],factory);}else if(typeof exports==='object'){module.exports=factory(require('jquery'));}else{factory(jQuery);}}(function($){var pluses=/\+/g;function encode(s){return config.raw?s:encodeURIComponent(s);}
+			function decode(s){return config.raw?s:decodeURIComponent(s);}
+			function stringifyCookieValue(value){return encode(config.json?JSON.stringify(value):String(value));}
+			function parseCookieValue(s){if(s.indexOf('"')===0){s=s.slice(1,-1).replace(/\\"/g,'"').replace(/\\\\/g,'\\');}
+			try{s=decodeURIComponent(s.replace(pluses,' '));return config.json?JSON.parse(s):s;}catch(e){}}
+			function read(s,converter){var value=config.raw?s:parseCookieValue(s);return $.isFunction(converter)?converter(value):value;}
+			var config=$.cookie=function(key,value,options){if(arguments.length>1&&!$.isFunction(value)){options=$.extend({},config.defaults,options);if(typeof options.expires==='number'){var days=options.expires,t=options.expires=new Date();t.setMilliseconds(t.getMilliseconds()+days*864e+5);}
+			return(document.cookie=[encode(key),'=',stringifyCookieValue(value),options.expires?'; expires='+options.expires.toUTCString():'',options.path?'; path='+options.path:'',options.domain?'; domain='+options.domain:'',options.secure?'; secure':''].join(''));}
+			var result=key?undefined:{},cookies=document.cookie?document.cookie.split('; '):[],i=0,l=cookies.length;for(;i<l;i++){var parts=cookies[i].split('='),name=decode(parts.shift()),cookie=parts.join('=');if(key===name){result=read(cookie,value);break;}
+			if(!key&&(cookie=read(cookie))!==undefined){result[name]=cookie;}}
+			return result;};config.defaults={};$.removeCookie=function(key,options){$.cookie(key,'',$.extend({},options,{expires:-1}));return!$.cookie(key);};}));
+        
+	        var oneDayText = $.cookie('oneDayShip'),
+	        	twoDayText = $.cookie('twoDayShip'),
+	        	threeDayText = $.cookie('threeDayShip'),
+	        	fourDayText = $.cookie('fourDayShip'),
+	        	fiveDayText = $.cookie('fiveDayShip'),
+	        	sixDayText = $.cookie('sixDayShip');
+	        	
+	        shippingItem1.parent('label').append('<span class="green"> -- get it between ' + threeDayText + ' and ' + sixDayText);
+	        shippingItem2.parent('label').append('<span class="green"> -- get it between ' + threeDayText + ' and ' + sixDayText);
+	        shippingItem3.parent('label').append('<span class="green"> -- get it between ' + oneDayText + ' and ' + threeDayText);
+	        shippingItem4.parent('label').append('<span class="green"> -- get it between ' + oneDayText + ' and ' + twoDayText);
+	        shippingItem5.parent('label').append('<span class="green"> -- get it between ' + oneDayText + ' and ' + twoDayText);
+	        shippingItem6.parent('label').append('<span class="green"> -- get it by tommorrow, ' + oneDayText);
+        }
+        shippingEstimateCookies();
+
     }
     //Hide "Free Shipping" from wholesale accounts
     function wholesaleHide() {
