@@ -55,19 +55,19 @@
 			if(!key&&(cookie=read(cookie))!==undefined){result[name]=cookie;}}
 			return result;};config.defaults={};$.removeCookie=function(key,options){$.cookie(key,'',$.extend({},options,{expires:-1}));return!$.cookie(key);};}));
         
-	        var oneDayText = $.cookie('oneDayShip'),
-	        	twoDayText = $.cookie('twoDayShip'),
-	        	threeDayText = $.cookie('threeDayShip'),
-	        	fourDayText = $.cookie('fourDayShip'),
-	        	fiveDayText = $.cookie('fiveDayShip'),
-	        	sixDayText = $.cookie('sixDayShip');
+	        var oneDayText = $.cookie('oneDayShip', { path: '/' }),
+	        	twoDayText = $.cookie('twoDayShip', { path: '/' }),
+	        	threeDayText = $.cookie('threeDayShip', { path: '/' }),
+	        	fourDayText = $.cookie('fourDayShip', { path: '/' }),
+	        	fiveDayText = $.cookie('fiveDayShip', { path: '/' }),
+	        	sixDayText = $.cookie('sixDayShip', { path: '/' });
 	        	
-	        shippingItem1.parent('label').append('<span class="green"> -- get it between ' + threeDayText + ' and ' + sixDayText);
-	        shippingItem2.parent('label').append('<span class="green"> -- get it between ' + threeDayText + ' and ' + sixDayText);
-	        shippingItem3.parent('label').append('<span class="green"> -- get it between ' + oneDayText + ' and ' + threeDayText);
-	        shippingItem4.parent('label').append('<span class="green"> -- get it between ' + oneDayText + ' and ' + twoDayText);
-	        shippingItem5.parent('label').append('<span class="green"> -- get it between ' + oneDayText + ' and ' + twoDayText);
-	        shippingItem6.parent('label').append('<span class="green"> -- get it by tommorrow, ' + oneDayText);
+	        shippingItem1.parent('label').append('<span class="green"> -- get it between <strong>' + threeDayText + '</strong> and <strong>' + sixDayText'</strong>');
+	        shippingItem2.parent('label').append('<span class="green"> -- get it between <strong>' + threeDayText + '</strong> and <strong>' + sixDayText'</strong>');
+	        shippingItem3.parent('label').append('<span class="green"> -- get it between <strong>' + oneDayText + '</strong> and <strong>' + threeDayText'</strong>');
+	        shippingItem4.parent('label').append('<span class="green"> -- get it between <strong>' + oneDayText + '</strong> and <strong>' + twoDayText'</strong>');
+	        shippingItem5.parent('label').append('<span class="green"> -- get it between <strong>' + oneDayText + '</strong> and <strong>' + twoDayText'</strong>');
+	        shippingItem6.parent('label').append('<span class="green"> -- get it by tommorrow, <strong>' + oneDayText)'</strong>';
         }
         shippingEstimateCookies();
 
