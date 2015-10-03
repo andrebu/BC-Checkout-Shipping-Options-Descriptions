@@ -1,19 +1,19 @@
 <form method="post" action="#" onsubmit="ExpressCheckout.ChooseShippingProvider(); return false;">
     <p><span class="Required">*</span>%%LNG_ExpressCheckoutSelectShippingProvider%%</p>
     %%GLOBAL_ShippingQuotes%%
-    <div class="shipping-addons disabled" data-disabled="true" style="display:;">
+    <div class="shipping-addons" data-disabled="true" style="display:;">
         <hr>
         <script type="text/javascript">
             //<![CDATA[
                 $('label[id^="shippingMethod"]').attr('onclick', 'enableShippingAddons();');
             //]]>
         </script>
-        <div class="del-sig">
-            <label for="delSigCheck" class="del-sig-text"><input id="delSigCheck" type="checkbox" onChange="addDelSigToCart();" title="Add Delivery Signature"><strong class="green">Add Delivery Signature</strong> -- Add the extra security of a required signature upon delivery for just $3</label>
+        <div class="del-sig disabled">
+            <label for="delSigCheck"><input id="delSigCheck" type="checkbox" onChange="addDelSigToCart();" title="Add Delivery Signature"><span class="option-text"><strong class="green">Add Delivery Signature</strong><i class="del-sig-text"> -- Add the extra security of a required signature upon delivery for just $3</i></span></label>
         </div>
         <hr>
-        <div class="ins-cost">
-            <label for="addInsCheck" class="ins-add-calc"><input id="addInsCheck" type="checkbox" onChange="addInsToCart();" title="Add Delivery Signature"><strong class="green">Add Shipping Insurance</strong><span class="ins-text"> --- Click here to calculate the lowest possible insurance cost for your order</span></label>
+        <div class="ins-cost disabled">
+            <label for="addInsCheck" class="ins-add-calc"><input id="addInsCheck" type="checkbox" onChange="addInsToCart();" title="Add Delivery Signature"><span class="option-text"><strong class="green">Add Shipping Insurance</strong><i class="ins-text"> -- Insure your order <span class="purch-total-span">of <span id="purch-total"></span></span><span class="insurance-total"> for only $<span id="ins-total"><i class="green fa fa-spinner fa-pulse fa-fw"></i></span></span></i></span></label>        
         </div>
         <hr>
     </div>
@@ -63,13 +63,13 @@
                 sixDayText = $.cookie('sixDayShip');
             //console.log(oneDayText, twoDayText, threeDayText, fourDayText, fiveDayText, sixDayText);
                 
-            if (((oneDayText != '%5Bobject%20Object%5D') && (twoDayText != '%5Bobject%20Object%5D') && (threeDayText != '%5Bobject%20Object%5D') && (fourDayText != '%5Bobject%20Object%5D') && (fiveDayText != '%5Bobject%20Object%5D') && (sixDayText != '%5Bobject%20Object%5D')) && ((oneDayText != '[object Object]') && (twoDayText != '[object Object]') && (threeDayText != '[object Object]') && (fourDayText != '[object Object]') && (fiveDayText != '[object Object]') && (sixDayText != '[object Object]'))) {
-            shippingItem1.parent('label').append('<span class="lightgray"> -- get it between <strong>' + threeDayText + '</strong> and <strong>' + sixDayText + '</strong>');
-            shippingItem2.parent('label').append('<span class="lightgray"> -- get it between <strong>' + threeDayText + '</strong> and <strong>' + sixDayText + '</strong>');
-            shippingItem3.parent('label').append('<span class="lightgray"> -- get it between <strong>' + oneDayText + '</strong> and <strong>' + threeDayText + '</strong>');
-            shippingItem4.parent('label').append('<span class="lightgray"> -- get it between <strong>' + oneDayText + '</strong> and <strong>' + twoDayText + '</strong>');
-            shippingItem5.parent('label').append('<span class="lightgray"> -- get it between <strong>' + oneDayText + '</strong> and <strong>' + twoDayText + '</strong>');
-            shippingItem6.parent('label').append('<span class="lightgray"> -- get it <strong>' + oneDayText + '</strong>');
+            if (((oneDayText != '%5Bobject%20Object%5D') && (twoDayText != '%5Bobject%20Object%5D') && (threeDayText != '%5Bobject%20Object%5D') && (fourDayText != '%5Bobject%20Object%5D') && (fiveDayText != '%5Bobject%20Object%5D') && (sixDayText != '%5Bobject%20Object%5D')) && ((oneDayText != '[object Object]') && (twoDayText != '[object Object]') && (threeDayText != '[object Object]') && (fourDayText != '[object Object]') && (fiveDayText != '[object Object]') && (sixDayText != '[object Object]')) && ((oneDayText != '%5Bundefined%20Undefined%5D') && (twoDayText != '%5Bundefined%20Undefined%5D') && (threeDayText != '%5Bundefined%20Undefined%5D') && (fourDayText != '%5Bundefined%20Undefined%5D') && (fiveDayText != '%5Bundefined%20Undefined%5D') && (sixDayText != '%5Bundefined%20Undefined%5D')) && ((oneDayText != '[undefined Undefined]') && (twoDayText != '[undefined Undefined]') && (threeDayText != '[undefined Undefined]') && (fourDayText != '[undefined Undefined]') && (fiveDayText != '[undefined Undefined]') && (sixDayText != '[undefined Undefined]'))) {
+            shippingItem1.closest('li').append('<span class="lightgray">Get it between <strong>' + threeDayText + '</strong> and <strong>' + sixDayText + '</strong>');
+            shippingItem2.closest('li').append('<span class="lightgray">Get it between <strong>' + threeDayText + '</strong> and <strong>' + sixDayText + '</strong>');
+            shippingItem3.closest('li').append('<span class="lightgray">Get it between <strong>' + oneDayText + '</strong> and <strong>' + threeDayText + '</strong>');
+            shippingItem4.closest('li').append('<span class="lightgray">Get it between <strong>' + oneDayText + '</strong> and <strong>' + twoDayText + '</strong>');
+            shippingItem5.closest('li').append('<span class="lightgray">Get it between <strong>' + oneDayText + '</strong> and <strong>' + twoDayText + '</strong>');
+            shippingItem6.closest('li').append('<span class="lightgray">Get it <strong>' + oneDayText + '</strong>');
             }
         }
         shippingEstimateCookies();
